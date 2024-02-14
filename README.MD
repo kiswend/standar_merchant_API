@@ -135,3 +135,23 @@ All responses will have the following structure:
 }
 ```
 
+# 7. Sequence
+
+```mermaid
+sequenceDiagram
+  participant Customer
+  participant Mobile money
+  participant Merchant
+  Customer->>Mobile money: provide account number
+  Mobile money->>Merchant: get account details
+  Merchant-->>Mobile money: return account details
+  Mobile money -->>Customer: return account details
+  Customer ->> Mobile money: request payment
+  Mobile money -->>Customer: acknolege payment request
+  Mobile money ->> Mobile money: business rules validation
+  Mobile money ->> Mobile money: reserve money
+  Mobile money ->> Merchant : post payment
+  Merchant -->> Mobile money: confirm payment
+  Mobile money ->> Mobile money: confirm payment
+  Mobile money ->>Customer: notify
+```
