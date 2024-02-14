@@ -110,7 +110,7 @@ All responses will have the following structure:
 
 
 ### 6.3. Transaction Enquiry
-- (Endpoint URL): {{url}}/api/tpm/pay
+- (Endpoint URL): {{url}}/api/pay
 - (HTTP Method): POST
 - (Request Body):
 
@@ -153,7 +153,7 @@ sequenceDiagram
   Mobile money ->> Mobile money: caculate charges
   Mobile money -->>Customer: show charges
   Customer ->> Customer: validate charges
-  
+
   Customer ->> Mobile money: Enter PIN to confirm
   Mobile money -->>Customer: acknolege payment request
   Mobile money ->> Mobile money: business rules validation
