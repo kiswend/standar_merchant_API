@@ -139,6 +139,7 @@ All responses will have the following structure:
 
 ```mermaid
 sequenceDiagram
+  autonumber
   participant Customer
   participant Mobile money
   participant Merchant
@@ -146,7 +147,14 @@ sequenceDiagram
   Mobile money->>Merchant: get account details
   Merchant-->>Mobile money: return account details
   Mobile money -->>Customer: return account details
-  Customer ->> Mobile money: request payment
+  Customer ->> Customer: validate account details
+
+  Customer ->> Mobile money: Enter amount to pay
+  Mobile money ->> Mobile money: caculate charges
+  Mobile money -->>Customer: show charges
+  Customer ->> Customer: validate charges
+  
+  Customer ->> Mobile money: Enter PIN to confirm
   Mobile money -->>Customer: acknolege payment request
   Mobile money ->> Mobile money: business rules validation
   Mobile money ->> Mobile money: reserve money
